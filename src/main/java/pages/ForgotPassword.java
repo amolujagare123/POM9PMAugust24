@@ -15,7 +15,7 @@ public class ForgotPassword {
 
     public ForgotPassword(WebDriver driver)
     {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     public void setTxtEmail(String email)
