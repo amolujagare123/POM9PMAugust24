@@ -33,7 +33,15 @@ public class AddClientTest extends DoLogin {
         menu.clickOnAddClient();
 
         AddClient addClient = new AddClient(driver);
-        addClient.setClientName("Rahul");
+
+        addClient.setLanguage("German");
+
+        addClient.setCountry("Nepal");
+
+        addClient.setGender("Female");
+
+
+        /*addClient.setClientName("Rahul");
         addClient.setClientSurname("Sharma");
         addClient.setStreetAddress1("12 MG Road");
         addClient.setStreetAddress2("Near Brigade Towers");
@@ -46,7 +54,7 @@ public class AddClientTest extends DoLogin {
         addClient.setEmailAddress("rahul.sharma@example.in");
         addClient.setWebAddress("http://rahulsharma.in");
         addClient.setVATID("VATIN1234567");
-        addClient.setTaxesCode("TAXIN8901234");
+        addClient.setTaxesCode("TAXIN8901234");*/
       //  addClient.clickSave();
     }
 }

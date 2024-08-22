@@ -10,11 +10,16 @@ import static utility.ConfigReader.getUrl;
 
 public class OpenURL {
 
-    public WebDriver driver;
+    public static WebDriver driver;
     @BeforeClass
     public void openURL() throws IOException {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(getUrl());
+    }
+
+    public static  WebDriver getDriver()
+    {
+       return driver  ;
     }
 }

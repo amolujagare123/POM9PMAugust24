@@ -1,5 +1,6 @@
 package utility;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,5 +22,7 @@ public class PropertiesDemo {
         System.out.println(prop.getProperty("url"));
         System.out.println(prop.getProperty("username"));
         System.out.println(prop.getProperty("password"));
+
+
     }
 }
