@@ -2,6 +2,7 @@ package pages.Clients;
 
 import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -88,6 +89,20 @@ public class AddClient {
     {
         genderContainer.click();
         driver.findElement(By.xpath("//li[normalize-space()='"+gender+"']")).click();
+    }
+
+    @FindBy (xpath = "//input[@id='client_birthdate']")
+    WebElement birthdate;
+
+    public void setBirthDate(String bDate)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+       // js.executeScript("arguments[0].click()",bDate);
+
+      //  js.executeScript("window.scrollBy(0,600)");
+
+      js.executeScript("arguments[0].setAttribute('value','"+bDate+"')",birthdate);
+       // birthdate.sendKeys(bDate);
     }
 
 

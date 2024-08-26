@@ -29,4 +29,8 @@ public class ConfigReader {
     public static String getPassword() throws IOException {
         return  getLoadedPropertiesObject().getProperty("password");
     }
+
+    public static String getBrowser() throws IOException {
+        return  getLoadedPropertiesObject().getProperty("browser");
+    }
 }
