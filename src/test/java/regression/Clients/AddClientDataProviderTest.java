@@ -1,5 +1,7 @@
 package regression.Clients;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
@@ -32,7 +34,9 @@ public class AddClientDataProviderTest extends DoLogin {
             String emailAddress,
             String webAddress,
             String vatId,
-            String taxesCode) throws InterruptedException {
+            String taxesCode,
+            String expected,
+            String xpathActual) throws InterruptedException {
 
         Menu menu = new Menu(driver);
         menu.clickOnAddClient();
@@ -58,7 +62,23 @@ public class AddClientDataProviderTest extends DoLogin {
         addClient.setVATID(vatId);
         addClient.setTaxesCode(taxesCode);
         addClient.clickSave();
-    }
+
+       // String expected = "Client already exists!";
+        String actual = "";
+         try {
+              actual = driver.findElement(By.xpath(xpathActual)).getText();
+         }
+         catch (Exception e)
+         {
+
+         }
+
+        System.out.println("actual="+actual);
+        System.out.println("expected="+expected);
+
+        Assert.assertEquals(actual,expected,"");
+
+         }
 
     @DataProvider
     Object[][] getData() throws IOException {
