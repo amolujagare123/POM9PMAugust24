@@ -1,4 +1,4 @@
-package regression.util;
+package util;
 
 import org.testng.annotations.BeforeClass;
 import pages.Login;

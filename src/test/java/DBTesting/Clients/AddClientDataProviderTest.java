@@ -1,17 +1,18 @@
 package DBTesting.Clients;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
 import pages.Menu;
-import regression.util.DoLogin;
+import util.DoLogin;
 
 import java.io.IOException;
 import java.sql.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 
+import static util.Conversion.*;
 import static utility.ForDataProvider.getMyData;
 
 public class AddClientDataProviderTest extends DoLogin {
@@ -37,7 +38,7 @@ public class AddClientDataProviderTest extends DoLogin {
             String webAddress,
             String vatId,
             String taxesCode
-            ) throws InterruptedException, ClassNotFoundException, SQLException {
+            ) throws InterruptedException, ClassNotFoundException, SQLException, ParseException {
 
 
         ArrayList<String> expected = new ArrayList<>();
@@ -109,9 +110,19 @@ public class AddClientDataProviderTest extends DoLogin {
             actual.add(rs.getString("client_city"));
             actual.add(rs.getString("client_state"));
             actual.add(rs.getString("client_zip"));
-            actual.add(rs.getString("client_country"));
-            actual.add(rs.getString("client_gender"));
-            actual.add(rs.getString("client_birthdate"));
+
+            String shortCountry = rs.getString("client_country"); // NP
+            String fullFormCountry = convertCountry(shortCountry);
+            actual.add(fullFormCountry);
+
+            String genderID = rs.getString("client_gender"); // 0,1,2
+            String genderFullForm = getGender(genderID);
+            actual.add(genderFullForm);
+
+          //  actual.add(getGender(rs.getString("client_gender")));
+
+            actual.add(convertDate(rs.getString("client_birthdate"))); //yyyy-MM-dd
+
             actual.add(rs.getString("client_phone"));
             actual.add(rs.getString("client_fax"));
             actual.add(rs.getString("client_mobile"));
@@ -124,6 +135,7 @@ public class AddClientDataProviderTest extends DoLogin {
         System.out.println("actual="+actual);
         System.out.println("expected="+expected);
 
+        Assert.assertEquals(actual,expected,"Data mismatch");
 
     }
 

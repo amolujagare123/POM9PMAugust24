@@ -1,13 +1,9 @@
 package regression.Clients;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
-import pages.Login;
 import pages.Menu;
-import regression.util.DoLogin;
+import util.DoLogin;
 
 public class AddClientTest extends DoLogin {
     /*WebDriver driver;

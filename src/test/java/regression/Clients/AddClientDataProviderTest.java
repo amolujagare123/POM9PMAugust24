@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
 import pages.Menu;
-import regression.util.DoLogin;
+import util.DoLogin;
 
 import java.io.IOException;
 

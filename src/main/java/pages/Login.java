@@ -23,6 +23,43 @@ public class Login {
     @FindBy (xpath = "//a[normalize-space()='I forgot my password']")
     WebElement btnForgotPassword;
 
+    @FindBy (xpath = "//label[@for='email']")
+    WebElement lblEmail;
+
+    public WebElement getTxtUsername() {
+        return txtUsername;
+    }
+
+    public WebElement getTxtPassword() {
+        return txtPassword;
+    }
+
+    public WebElement getBtnLogin() {
+        return btnLogin;
+    }
+
+    public WebElement getBtnForgotPassword() {
+        return btnForgotPassword;
+    }
+
+    public WebElement getLblEmail() {
+        return lblEmail;
+    }
+
+    public WebElement getLblPassword() {
+        return lblPassword;
+    }
+
+    public WebElement getLogoIcon() {
+        return logoIcon;
+    }
+
+    @FindBy (xpath = "//label[@for='password']")
+    WebElement lblPassword;
+
+    @FindBy (xpath = "//img[@class='login-logo img-responsive']")
+    WebElement logoIcon;
+
     public Login(WebDriver driver)
     {
         PageFactory.initElements(driver,this);

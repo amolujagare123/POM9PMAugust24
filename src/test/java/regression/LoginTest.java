@@ -1,10 +1,8 @@
 package regression;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.Login;
-import regression.util.OpenURL;
+import util.OpenURL;
 
 public class LoginTest extends OpenURL {
 
